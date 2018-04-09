@@ -17,7 +17,7 @@ import uinbdg.developer.journaluinapps.model.News;
 public interface BaseApiService {
 
     @GET("v2/top-headlines")
-    Call<News>getProfile(@Header("Authorization")String Authorization);
+    Call<News>getNews(@Header("Authorization")String Authorization);
 
 //    @GET("survey/")
 //    Call<ResponseSurvey> getListSurvey();

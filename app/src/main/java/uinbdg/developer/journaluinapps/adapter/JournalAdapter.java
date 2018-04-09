@@ -9,11 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
 import uinbdg.developer.journaluinapps.R;
 import uinbdg.developer.journaluinapps.model.JournalDummy;
+import uinbdg.developer.journaluinapps.model.News;
+import uinbdg.developer.journaluinapps.model.Source;
 
 /**
  * Created by Nikko Eka Saputra on 10/02/2018.
@@ -22,9 +25,10 @@ import uinbdg.developer.journaluinapps.model.JournalDummy;
 public class JournalAdapter extends RecyclerView.Adapter<JournalAdapter.ViewHolder> {
 
     private Context context;
-    private List<JournalDummy> listJournal;
+    //private List<JournalDummy> listJournal;
+    private List<Source> listJournal;
 
-    public JournalAdapter(Context context, List<JournalDummy> listJournal){
+    public JournalAdapter(Context context, List<Source> listJournal){
         this.context = context;
         this.listJournal = listJournal;
     }
@@ -41,12 +45,15 @@ public class JournalAdapter extends RecyclerView.Adapter<JournalAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final JournalDummy journals = listJournal.get(position);
+        final Source journals = listJournal.get(position);
         holder.lblJournal.setText("journal");
-        holder.tvNamaJournal.setText(journals.getJudul());
-        holder.tvLastIssues.setText(journals.getLastIssue());
+       // holder.tvNamaJournal.setText(journals.getJudul());
+        holder.tvNamaJournal.setText(journals.getTitle());
+       // holder.tvLastIssues.setText(journals.getLastIssue());
+        holder.tvLastIssues.setText(journals.getUrl());
         holder.lblNumberIssn.setText("ISSN Number : ");
-        holder.tvNumberIssn.setText(journals.getIssn());
+       // holder.tvNumberIssn.setText(journals.getIssn());
+        holder.tvNumberIssn.setText(journals.getDescription());
         holder.imgCover.setImageResource(R.drawable.ic_list_black_24px); //harusnya get id cover
 
 //        holder.cvJournal.setOnClickListener(new View.OnClickListener() {
